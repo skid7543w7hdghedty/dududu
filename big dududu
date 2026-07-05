@@ -1,11 +1,3 @@
---[[
-    		Fatality-Dark Interface
-
-    Author: 4lpaca
-    License: MIT
-    Github: https://github.com/4lpaca-pin/Fatality
---]]
-
 -- Export Types --
 export type Window = {
 	Name: string,
@@ -289,7 +281,7 @@ Fatality.FontSemiBold = Font.new('rbxasset://fonts/families/GothamSSm.json',Enum
 Fatality.Flags = {};
 Fatality.Colors = {
     Black = Color3.fromRGB(6, 6, 10),
-    Main = Color3.fromRGB(18, 20, 28),
+    Main = Color3.fromRGB(255, 255, 255),
     Background = Color3.fromRGB(10, 12, 16),
     Surface = Color3.fromRGB(24, 26, 32),
     Muted = Color3.fromRGB(120, 125, 135),
@@ -2440,7 +2432,6 @@ function Fatality:CreateElements(Parent : Frame , ZIndex : number , Event : Bind
 		ValueIcon.Size = UDim2.new(0.699999988, 0, 0.699999988, 0)
 		ValueIcon.ZIndex = ZIndex + 2
 		ValueIcon.Image = "rbxassetid://10709790644"
-		ValueIcon.ImageColor3 = Color3.fromRGB(255, 255, 255)
 		ValueIcon.ImageTransparency = 1;
 
 		OptionButton.Name = Fatality:RandomString()
@@ -2462,7 +2453,7 @@ function Fatality:CreateElements(Parent : Frame , ZIndex : number , Event : Bind
 			if value then
 				Fatality:CreateAnimation(ValueIcon,0.45,{
 					ImageTransparency = 0,
-					ImageColor3 = Color3.fromRGB(255, 255, 255),
+					ImageColor3 = Fatality.Colors.Main,
 					Size = UDim2.new(0.8, 0, 0.8, 0),
 					Rotation = 0,
 				})
@@ -4963,14 +4954,14 @@ function Fatality.new(Window: Window)
 					Position = UDim2.new(0.825, 0, 0.5, 0)
 				})
 
-			Fatality:CreateAnimation(Icon,0.5,{
-				ImageTransparency = (MenuLiber.Visible and 0) or 0.5
-			})
+				Fatality:CreateAnimation(Icon,0.5,{
+					ImageTransparency = (MenuLiber.Visible and 0.15) or 0.5
+				})
 
-			Fatality:CreateAnimation(menu_name,0.5,{
-				TextStrokeTransparency = 0.900,
-				TextTransparency = (MenuLiber.Visible and 0) or 0.5
-			})
+				Fatality:CreateAnimation(menu_name,0.5,{
+					TextStrokeTransparency = 0.900,
+					TextTransparency = (MenuLiber.Visible and 0.15) or 0.5
+				})
 			else
 				Fatality:CreateAnimation(Left,0.5,{
 					Position = UDim2.new(0.175, 0, 0.5, 1)
@@ -5007,17 +4998,17 @@ function Fatality.new(Window: Window)
 			if val then
 				MenuLiber.Visible = true;
 
-			Fatality:CreateAnimation(Icon,0.5,{
-				ImageTransparency = 0,
-				ImageColor3 = Color3.fromRGB(255, 255, 255)
-			});
+				Fatality:CreateAnimation(Icon,0.5,{
+					ImageTransparency = 0.15,
+					ImageColor3 = Fatality.Colors.Main
+				});
 
-			Fatality:CreateAnimation(menu_name,0.5,{
-				TextTransparency = 0
-			});
+				Fatality:CreateAnimation(menu_name,0.5,{
+					TextTransparency = 0.15
+				});
 
 				Fatality:CreateAnimation(MenuButton,0.5,{
-					BackgroundTransparency = 0.15
+					BackgroundTransparency = 0
 				})
 
 				BindEvent:SetAttribute('V',true);
