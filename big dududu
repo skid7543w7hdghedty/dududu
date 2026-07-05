@@ -289,7 +289,7 @@ Fatality.FontSemiBold = Font.new('rbxasset://fonts/families/GothamSSm.json',Enum
 Fatality.Flags = {};
 Fatality.Colors = {
     Black = Color3.fromRGB(6, 6, 10),
-    Main = Color3.fromRGB(255, 255, 255),
+    Main = Color3.fromRGB(18, 20, 28),
     Background = Color3.fromRGB(10, 12, 16),
     Surface = Color3.fromRGB(24, 26, 32),
     Muted = Color3.fromRGB(120, 125, 135),
@@ -2461,7 +2461,7 @@ function Fatality:CreateElements(Parent : Frame , ZIndex : number , Event : Bind
 			if value then
 				Fatality:CreateAnimation(ValueIcon,0.45,{
 					ImageTransparency = 0,
-					ImageColor3 = Fatality.Colors.Main,
+					ImageColor3 = Color3.fromRGB(255, 255, 255),
 					Size = UDim2.new(0.8, 0, 0.8, 0),
 					Rotation = 0,
 				})
@@ -5007,12 +5007,12 @@ function Fatality.new(Window: Window)
 				MenuLiber.Visible = true;
 
 				Fatality:CreateAnimation(Icon,0.5,{
-					ImageTransparency = 0.15,
-					ImageColor3 = Fatality.Colors.Main
+					ImageTransparency = 0,
+					ImageColor3 = Color3.fromRGB(255, 255, 255)
 				});
 
 				Fatality:CreateAnimation(menu_name,0.5,{
-					TextTransparency = 0.15
+					TextTransparency = 0
 				});
 
 				Fatality:CreateAnimation(MenuButton,0.5,{
